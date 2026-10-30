@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2a3d"/>
+      <stop offset="100%" stop-color="#080b14"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#bg)"/>
+  <g transform="translate(100 115)" fill="#0b1020" stroke="#2a3550" stroke-width="1.4">
+    <circle cx="0" cy="-30" r="28"/>
+    <path d="M-55 95 C -55 35 -25 5 0 5 C 25 5 55 35 55 95 Z"/>
+  </g>
+  <text x="100" y="190" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#7a86a0" text-anchor="middle" letter-spacing="2">Replace portrait.svg with your photo</text>
+</svg>
