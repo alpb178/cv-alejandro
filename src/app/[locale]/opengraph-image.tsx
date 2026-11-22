@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { profile } from "@/content/cv";
+import { SITE_HOST } from "@/content/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -81,7 +82,7 @@ export default async function OpengraphImage({
             color: "#6b7589",
           }}
         >
-          <div style={{ display: "flex" }}>cv.corpsc.com</div>
+          <div style={{ display: "flex" }}>{SITE_HOST}</div>
           <div style={{ display: "flex" }}>Santa Cruz de la Sierra, Bolivia</div>
         </div>
       </div>

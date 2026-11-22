@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
-
-const base = "https://cv.corpsc.com";
+import { SITE_URL as base } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
