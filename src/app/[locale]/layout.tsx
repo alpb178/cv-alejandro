@@ -3,6 +3,7 @@ import { DM_Sans, Fraunces, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { SITE_URL } from "@/content/site";
 import { ThemeProvider, themeBootstrapScript } from "@/components/ThemeProvider";
 import "../globals.css";
 
@@ -45,7 +46,7 @@ export async function generateMetadata({
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
   return {
-    metadataBase: new URL("https://cv.corpsc.com"),
+    metadataBase: new URL(SITE_URL),
     title: dict.meta.title,
     description: dict.meta.description,
     alternates: {
@@ -55,7 +56,7 @@ export async function generateMetadata({
     openGraph: {
       title: dict.meta.title,
       description: dict.meta.description,
-      url: `https://cv.corpsc.com/${locale}`,
+      url: `${SITE_URL}/${locale}`,
       type: "profile",
       locale: locale === "es" ? "es_BO" : "en_US",
       siteName: "Alejandro Pérez — CV",
@@ -82,7 +83,7 @@ const personJsonLd = {
   "@type": "Person",
   name: "Alejandro Pérez",
   jobTitle: "Senior Frontend Developer",
-  url: "https://cv.corpsc.com",
+  url: SITE_URL,
   email: "mailto:alesx2soporte@gmail.com",
   address: {
     "@type": "PostalAddress",
