@@ -70,7 +70,7 @@ function ProjectGroup({
               ))}
             </div>
             {p.links?.length ? (
-              <div className="relative z-10 mt-3 flex flex-wrap gap-2">
+              <div className="relative z-10 mt-3 flex flex-wrap gap-2 print:flex-col print:gap-0.5">
                 {p.links.map((link) => {
                   const store = link.kind === "android" ? "Google Play" : "App Store";
                   return (
@@ -80,10 +80,10 @@ function ProjectGroup({
                       target="_blank"
                       rel="noreferrer noopener"
                       aria-label={`${p.name} — ${store}`}
-                      className="print-flat inline-flex items-center gap-1 rounded-md border border-line-strong bg-card px-2.5 py-1 text-xs font-medium text-fg transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                      className="print-flat inline-flex items-center gap-1 rounded-md border border-line-strong bg-card px-2.5 py-1 text-xs font-medium text-fg transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent print:block print:border-0 print:p-0"
                     >
                       {store}
-                      <span aria-hidden="true">↗</span>
+                      <span aria-hidden="true" className="print:hidden">↗</span>
                     </a>
                   );
                 })}
