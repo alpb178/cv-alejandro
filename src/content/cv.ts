@@ -23,8 +23,8 @@ export const profile = {
 };
 
 export const summary: T = {
-  es: "Ingeniero Informático y CEO de CORPSC, con más de 9 años construyendo aplicaciones web y móviles en producción para clientes de España, Cuba y Bolivia. Full stack con React.js, Next.js y TypeScript en el frontend, NestJS, Prisma y Django en el backend, y React Native/Expo en móvil, con 6 apps publicadas en Google Play y App Store. Testing end-to-end con Playwright y Cypress. Uso el desarrollo asistido por IA (Claude AI, Cursor IDE) a diario, lo que reduce los tiempos de entrega ~60% sin bajar la calidad.",
-  en: "Computer Engineer and CEO of CORPSC, with 9+ years building production web and mobile applications for clients in Spain, Cuba and Bolivia. Full stack: React.js, Next.js and TypeScript on the frontend, NestJS, Prisma and Django on the backend, and React Native/Expo on mobile, with 6 apps published on Google Play and the App Store. End-to-end testing with Playwright and Cypress. I use AI-assisted development (Claude AI, Cursor IDE) daily, cutting delivery time by ~60% without lowering quality.",
+  es: "Ingeniero Informático y CEO de CORPSC, con más de 9 años construyendo aplicaciones web y móviles en producción para clientes de España, Cuba y Bolivia. Full stack con React.js, Next.js y TypeScript en el frontend, NestJS, Prisma y Django en el backend, y React Native/Expo en móvil, con 6 apps publicadas en Google Play y App Store. Testing end-to-end con Playwright y Cypress. Trabajo a diario con agentes de IA (Claude Code, Cursor) y desarrollo guiado por especificaciones (GitHub Spec Kit), lo que reduce los tiempos de entrega ~60% sin bajar la calidad: cada cambio se verifica con tests, lint y revisión de PR.",
+  en: "Computer Engineer and CEO of CORPSC, with 9+ years building production web and mobile applications for clients in Spain, Cuba and Bolivia. Full stack: React.js, Next.js and TypeScript on the frontend, NestJS, Prisma and Django on the backend, and React Native/Expo on mobile, with 6 apps published on Google Play and the App Store. End-to-end testing with Playwright and Cypress. I work daily with AI coding agents (Claude Code, Cursor) and spec-driven development (GitHub Spec Kit), cutting delivery time by ~60% without lowering quality: every change is verified with tests, lint and PR review.",
 };
 
 export interface Highlight {
@@ -77,8 +77,14 @@ export const skills: SkillGroup[] = [
     items: ["Playwright", "Cypress", "Jest", "Pipelines E2E"],
   },
   {
-    label: { es: "IA & Dev tools", en: "AI & Dev tools" },
-    items: ["Claude AI", "Cursor IDE", "Prompt Engineering"],
+    label: { es: "IA aplicada al desarrollo", en: "AI-assisted development" },
+    items: [
+      "Claude Code (AI agents)",
+      "Cursor",
+      "Spec-Driven Development (GitHub Spec Kit)",
+      "Context engineering (CLAUDE.md / AGENTS.md)",
+      "Parallel agents (git worktrees)",
+    ],
   },
   {
     label: { es: "Despliegue & CI/CD", en: "Deployment & CI/CD" },
@@ -126,6 +132,10 @@ export const experience: Experience[] = [
         en: "Architecture and full stack development of 5 products in production with Next.js, NestJS, Prisma and Expo mobile apps.",
       },
       {
+        es: "Desarrollo con agentes de IA (Claude Code + GitHub Spec Kit): especificación → plan → tareas → implementación, con cada cambio verificado por tests E2E, lint y revisión de PR.",
+        en: "AI-agent development (Claude Code + GitHub Spec Kit): specification → plan → tasks → implementation, with every change verified by E2E tests, lint and PR review.",
+      },
+      {
         es: "Flujo de entrega con ramas por feature, revisión de código y releases a producción en Vercel y Render.",
         en: "Delivery workflow with feature branches, code review and production releases on Vercel and Render.",
       },
@@ -134,7 +144,7 @@ export const experience: Experience[] = [
         en: "Live products: take · invoices · irisnatural · tu-chamba · linehot (.corpsc.com).",
       },
     ],
-    stack: ["Next.js", "NestJS", "Prisma", "Expo", "PostgreSQL", "Vercel", "Render"],
+    stack: ["Next.js", "NestJS", "Prisma", "Expo", "PostgreSQL", "Vercel", "Render", "Claude Code"],
   },
   {
     role: { es: "Full Stack Developer (Web & Mobile)", en: "Full Stack Developer (Web & Mobile)" },
