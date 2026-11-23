@@ -53,11 +53,11 @@ export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dic
 
         <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-5">
           {highlights.map((h, i) => (
-            <div key={h.value} className="bg-surface p-4 text-center sm:text-left">
+            <div key={h.value} className="flex flex-col justify-between gap-2 bg-surface p-4 text-center sm:text-left">
               <dt className="text-[10px] font-medium uppercase tracking-[0.18em] text-fg-faint">
                 {pick(h.label, locale)}
               </dt>
-              <dd className="mt-1 text-xl font-semibold tracking-tight text-fg sm:text-2xl">
+              <dd className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
                 <CountUpValue value={h.value} index={i} />
               </dd>
             </div>
