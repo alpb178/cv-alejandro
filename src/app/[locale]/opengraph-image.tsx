@@ -5,15 +5,15 @@ import { SITE_HOST } from "@/content/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Alejandro Pérez — Senior Frontend Developer";
+export const alt = "Alejandro Pérez — CEO at CORPSC · Senior Full Stack Developer";
 
 const copy: Record<Locale, { tagline: string; cta: string }> = {
   es: {
-    tagline: "React · TypeScript · React Native · Strapi",
+    tagline: "React · Next.js · NestJS · React Native",
     cta: "CV digital",
   },
   en: {
-    tagline: "React · TypeScript · React Native · Strapi",
+    tagline: "React · Next.js · NestJS · React Native",
     cta: "Digital resume",
   },
 };
@@ -70,7 +70,7 @@ export default async function OpengraphImage({
 
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           <div style={{ fontSize: 68, fontWeight: 700, lineHeight: 1.05 }}>{profile.name}</div>
-          <div style={{ fontSize: 34, color: "#97a0b3" }}>Senior Frontend Developer</div>
+          <div style={{ fontSize: 34, color: "#97a0b3" }}>CEO @ CORPSC · Senior Full Stack Developer</div>
           <div style={{ fontSize: 28, color: "#7aa2ff" }}>{tagline}</div>
         </div>
 

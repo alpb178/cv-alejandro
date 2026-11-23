@@ -2,9 +2,9 @@ import type { Dictionary } from "./types";
 
 const dict: Dictionary = {
   meta: {
-    title: "Alejandro Pérez | Senior Frontend Developer (React/TypeScript) — Remote LATAM",
+    title: "Alejandro Pérez | CEO at CORPSC · Senior Full Stack Developer (React, React Native)",
     description:
-      "Alejandro Pérez, Senior Frontend Developer (9+ yrs) specialized in React, TypeScript, React Native & Strapi. Available for remote roles (LATAM/EU). Let's talk.",
+      "Alejandro Pérez, CEO at CORPSC and Senior Full Stack Developer (9+ yrs): React, Next.js, TypeScript, NestJS and React Native, with 6 published apps. Available for remote roles (LATAM/EU).",
   },
   nav: {
     summary: "Summary",
@@ -12,7 +12,6 @@ const dict: Dictionary = {
     experience: "Experience",
     projects: "Projects",
     education: "Education",
-    languages: "Languages",
     contact: "Contact",
     cta: "Contact",
     print: "Print / PDF",
@@ -31,8 +30,6 @@ const dict: Dictionary = {
   },
   ui: {
     open: "Open",
-    download: "Download PDF",
-    today: "Present",
     availableFor: "Availability",
     availabilityValue: "Open to remote opportunities (LATAM / EU) and contract work.",
   },
