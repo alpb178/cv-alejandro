@@ -11,7 +11,7 @@ export default function Contact({ locale, dict }: { locale: Locale; dict: Dict }
       <div className="surface-card grid gap-6 rounded-2xl p-6 sm:grid-cols-3">
         <Item label={dict.sections.contact} value={profile.email} href={`mailto:${profile.email}`} />
         <Item label="WhatsApp" value={profile.phone} href={profile.whatsapp} />
-        <Item label="LinkedIn" value="alejandro-perez-dev" href={profile.linkedin} />
+        <Item label="LinkedIn" value="alpb1708" href={profile.linkedin} />
         <Item label="Web" value={profile.websiteLabel} href={profile.website} />
         <Item label={dict.ui.availableFor} value={pick(profile.location, locale)} />
       </div>

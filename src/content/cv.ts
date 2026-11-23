@@ -15,7 +15,7 @@ export const profile = {
   email: "alesx2soporte@gmail.com",
   phone: "+591 736 556 92",
   whatsapp: "https://wa.me/59173655692",
-  linkedin: "https://www.linkedin.com/in/alejandro-perez-dev",
+  linkedin: "https://www.linkedin.com/in/alpb1708",
   website: "https://irisnatural.corpsc.com",
   websiteLabel: "irisnatural.corpsc.com",
   github: null as string | null,
@@ -35,7 +35,7 @@ export const highlights: Highlight[] = [
   { value: "9+", label: { es: "años de experiencia full stack", en: "years of full stack experience" } },
   { value: "15+", label: { es: "proyectos en producción", en: "projects in production" } },
   { value: "~60%", label: { es: "reducción de tiempo con IA", en: "faster delivery with AI" } },
-  { value: "2", label: { es: "apps en Google Play", en: "apps on Google Play" } },
+  { value: "6", label: { es: "apps publicadas (Google Play + App Store)", en: "apps published (Google Play + App Store)" } },
   { value: "5", label: { es: "productos SaaS propios", en: "own SaaS products" } },
 ];
 
@@ -102,11 +102,45 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
+    role: { es: "Full Stack Developer (Web & Mobile)", en: "Full Stack Developer (Web & Mobile)" },
+    company: "EMX Comunicaciones",
+    companyUrl: "https://emxcomunicaciones.com",
+    location: { es: "Remoto · Donostia, España", en: "Remote · Donostia, Spain" },
+    period: { es: "May 2025 — Presente", en: "May 2025 — Present" },
+    bullets: [
+      {
+        es: "Desarrollo full stack del ecosistema Tikneo: tres productos con plataforma web y apps móviles publicadas en Google Play y App Store.",
+        en: "Full stack development of the Tikneo ecosystem: three products with a web platform and mobile apps published on Google Play and the App Store.",
+      },
+      {
+        es: "Tikneo: gestión para pymes con fichaje digital legal desde el móvil, proyectos, tiempos y gastos.",
+        en: "Tikneo: SME management with legally compliant mobile time tracking, projects, hours and expenses.",
+      },
+      {
+        es: "Orlegitech: gestión de campos de golf con informes aéreos del césped, control de flota y partes del personal.",
+        en: "Orlegitech: golf course management with aerial turf reports, fleet tracking and staff reports.",
+      },
+      {
+        es: "Popyplan: red social de planes de deporte y naturaleza sin alcohol ni drogas, con comunidades y asistencia por QR.",
+        en: "Popyplan: social network for sport and outdoor plans free of alcohol and drugs, with communities and QR check-in.",
+      },
+      {
+        es: "Publicación y mantenimiento de 6 apps React Native en Google Play y App Store.",
+        en: "Publishing and maintaining 6 React Native apps on Google Play and the App Store.",
+      },
+      {
+        es: "Proyectos en vivo: tikneo.com · app.tikneo.com · orlegitech.com · app.orlegitech.com · popyplan.com.",
+        en: "Live projects: tikneo.com · app.tikneo.com · orlegitech.com · app.orlegitech.com · popyplan.com.",
+      },
+    ],
+    stack: ["React.js", "TypeScript", "React Native", "Django/DRF", "iOS", "Android", "Playwright"],
+  },
+  {
     role: { es: "Full Stack Developer (Frontend Focus)", en: "Full Stack Developer (Frontend Focus)" },
     company: "KODS.AI",
     companyUrl: "https://kods.ai",
     location: { es: "Remoto · La Habana, Cuba", en: "Remote · Havana, Cuba" },
-    period: { es: "2023 — Presente", en: "2023 — Present" },
+    period: { es: "2023 — Nov 2026", en: "2023 — Nov 2026" },
     bullets: [
       {
         es: "Desarrollo frontend con React.js + TypeScript: construyo y mantengo plataformas web para clientes internacionales en España y la Unión Europea.",
@@ -133,8 +167,8 @@ export const experience: Experience[] = [
         en: "Designed and implemented automated E2E test suites with Playwright and Cypress, significantly reducing production regressions.",
       },
       {
-        es: "Proyectos en vivo: kods.ai · app.tikneo.com · app.orlegitech.com · zendinit.com.",
-        en: "Live projects: kods.ai · app.tikneo.com · app.orlegitech.com · zendinit.com.",
+        es: "Proyectos en vivo: kods.ai · zendinit.com.",
+        en: "Live projects: kods.ai · zendinit.com.",
       },
     ],
     stack: ["React.js", "TypeScript", "Strapi", "Playwright", "Cypress", "Claude AI", "Cursor IDE", "React Native"],
@@ -234,12 +268,20 @@ export const experience: Experience[] = [
   },
 ];
 
+export interface ProjectLink {
+  kind: "android" | "ios";
+  url: string;
+}
+
 export interface Project {
   name: string;
+  /** Public website: the card's main link. */
   url: string;
   kind: "own" | "client";
   summary: T;
   stack: string[];
+  /** Store listings, in android → ios order. Each one is a concrete app page, never a search. */
+  links?: ProjectLink[];
 }
 
 export const ownProjects: Project[] = [
@@ -296,26 +338,55 @@ export const ownProjects: Project[] = [
 ];
 
 export const clientProjects: Project[] = [
+  // ── Tikneo ecosystem (EMX Comunicaciones) ──
+  {
+    name: "Tikneo",
+    url: "https://tikneo.com",
+    kind: "client",
+    summary: {
+      es: "Gestión para pymes: fichaje digital, proyectos, tiempos y gastos. Web, Android e iOS.",
+      en: "SME management: time tracking, projects, hours and expenses. Web, Android and iOS.",
+    },
+    stack: ["React.js", "React Native", "Django/DRF", "iOS", "Android"],
+    links: [
+      { kind: "android", url: "https://play.google.com/store/apps/details?id=com.tikneoapp.tikneoapp" },
+      { kind: "ios", url: "https://apps.apple.com/us/app/tikneo/id6651859831" },
+    ],
+  },
+  {
+    name: "Orlegitech",
+    url: "https://orlegitech.com",
+    kind: "client",
+    summary: {
+      es: "Gestión de campos de golf: césped, informes aéreos, flota y personal. Web, Android e iOS.",
+      en: "Golf course management: turf, aerial reports, fleet and staff. Web, Android and iOS.",
+    },
+    stack: ["React.js", "React Native", "iOS", "Android"],
+    links: [
+      { kind: "android", url: "https://play.google.com/store/apps/details?id=com.tikneo.golf" },
+      { kind: "ios", url: "https://apps.apple.com/us/app/orlegitech/id6755734300" },
+    ],
+  },
+  {
+    name: "Popyplan",
+    url: "https://popyplan.com",
+    kind: "client",
+    summary: {
+      es: "Planes y comunidades de deporte y naturaleza sin alcohol ni drogas. Android e iOS.",
+      en: "Sport and outdoor plans and communities, free of alcohol and drugs. Android and iOS.",
+    },
+    stack: ["React.js", "React Native", "iOS", "Android"],
+    links: [
+      { kind: "android", url: "https://play.google.com/store/apps/details?id=com.tikneo.popmobile" },
+      { kind: "ios", url: "https://apps.apple.com/us/app/popyplan/id6755899118" },
+    ],
+  },
   {
     name: "Kods AI Platform",
     url: "https://kods.ai",
     kind: "client",
     summary: { es: "Plataforma web con integraciones de IA.", en: "Web platform with AI integrations." },
     stack: ["React.js", "Strapi", "Claude AI", "TypeScript"],
-  },
-  {
-    name: "Tikneo Web App",
-    url: "https://app.tikneo.com",
-    kind: "client",
-    summary: { es: "Plataforma de gestión de eventos y torneos de golf.", en: "Golf event and tournament management platform." },
-    stack: ["React.js", "Strapi", "REST API"],
-  },
-  {
-    name: "Tikneo Golf (Google Play)",
-    url: "https://play.google.com/store/apps/details?id=com.tikneoapp.tikneoapp",
-    kind: "client",
-    summary: { es: "App móvil de gestión de rondas de golf.", en: "Mobile app for golf round management." },
-    stack: ["React Native", "Android"],
   },
   {
     name: "HistolWord — Universidad de Málaga",
@@ -330,13 +401,6 @@ export const clientProjects: Project[] = [
     kind: "client",
     summary: { es: "Plataforma de servicios con CMS headless.", en: "Services platform with headless CMS." },
     stack: ["React.js", "Strapi"],
-  },
-  {
-    name: "Orlegitech",
-    url: "https://app.orlegitech.com",
-    kind: "client",
-    summary: { es: "Plataforma multilingüe de gestión empresarial (ES / EN).", en: "Multilingual business management platform (ES / EN)." },
-    stack: ["React.js"],
   },
 ];
 
