@@ -12,7 +12,7 @@ export default function Contact({ locale, dict }: { locale: Locale; dict: Dict }
         <Item label={dict.sections.contact} value={profile.email} href={`mailto:${profile.email}`} />
         <Item label="WhatsApp" value={profile.phone} href={profile.whatsapp} />
         <Item label="LinkedIn" value="alejandro-perez-dev" href={profile.linkedin} />
-        <Item label="Web" value="kods.ai" href={profile.website} />
+        <Item label="Web" value={profile.websiteLabel} href={profile.website} />
         <Item label={dict.ui.availableFor} value={pick(profile.location, locale)} />
       </div>
     </section>
