@@ -114,7 +114,7 @@ const personJsonLd = {
     addressCountry: "BO",
   },
   sameAs: ["https://www.linkedin.com/in/alpb1708", "https://github.com/alpb178", "https://www.corpsc.com"],
-  knowsAbout: ["React", "Next.js", "TypeScript", "React Native", "Expo", "NestJS", "Prisma", "Django", "PostgreSQL", "Playwright"],
+  knowsAbout: ["React", "Next.js", "TypeScript", "React Native", "Expo", "NestJS", "Prisma", "Django", "PostgreSQL", "Playwright", "Claude Code", "Spec-Driven Development"],
 };
 
 export default async function LocaleLayout({
