@@ -2,9 +2,9 @@ import type { Dictionary } from "./types";
 
 const dict: Dictionary = {
   meta: {
-    title: "Alejandro Pérez | CEO at CORPSC · Senior Full Stack Developer (React, React Native)",
+    title: "Alejandro Pérez · CEO at CORPSC · Full Stack Developer",
     description:
-      "Alejandro Pérez, CEO at CORPSC and Senior Full Stack Developer (9+ yrs): React, Next.js, TypeScript, NestJS and React Native, with 6 published apps. Available for remote roles (LATAM/EU).",
+      "Resume of Alejandro Pérez, CEO at CORPSC and Full Stack Developer with 9+ years in React, Next.js, NestJS and React Native. 6 published apps. Remote LATAM/EU.",
   },
   nav: {
     summary: "Summary",
