@@ -319,7 +319,7 @@ export const clientProjects: Project[] = [
   },
   {
     name: "HistolWord — Universidad de Málaga",
-    url: "https://histolword.uma.es",
+    url: "https://histolword.corpsc.com",
     kind: "client",
     summary: { es: "Plataforma educativa de histología (Universidad de Málaga, España).", en: "Histology educational platform (University of Málaga, Spain)." },
     stack: ["React.js"],
