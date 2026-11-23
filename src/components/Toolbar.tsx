@@ -13,13 +13,15 @@ interface Props {
 
 export default function Toolbar({ locale, theme, printLabel, ctaLabel }: Props) {
   return (
-    <div className="no-print flex items-center gap-2">
+    <div className="no-print flex shrink-0 items-center gap-2">
       <ThemeToggle label={theme} />
       <LanguageToggle current={locale} />
       <button
         type="button"
         onClick={() => window.print()}
-        className="inline-flex items-center gap-2 rounded-full border border-line bg-card px-3.5 py-2 text-xs font-semibold text-fg transition hover:border-line-strong"
+        aria-label={printLabel}
+        title={printLabel}
+        className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-line bg-card px-3.5 py-2 text-xs font-semibold text-fg transition hover:border-line-strong"
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path
@@ -34,7 +36,7 @@ export default function Toolbar({ locale, theme, printLabel, ctaLabel }: Props) 
       </button>
       <a
         href="mailto:alesx2soporte@gmail.com"
-        className="hidden rounded-full bg-fg px-4 py-2 text-xs font-semibold text-surface transition hover:opacity-90 md:inline-flex"
+        className="hidden whitespace-nowrap rounded-full bg-fg px-4 py-2 text-xs font-semibold text-surface transition hover:opacity-90 md:inline-flex"
       >
         {ctaLabel}
       </a>
