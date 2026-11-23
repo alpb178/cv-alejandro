@@ -32,16 +32,26 @@ function ProjectGroup({
       <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.22em] text-accent">{label}</p>
       <div className="grid gap-3 sm:grid-cols-2">
         {items.map((p) => (
-          <a
+          // The card is an <article>, not an <a>: store buttons are links too and
+          // links cannot nest. The title's ::before stretches over the whole card
+          // so it stays clickable. ::before and not ::after, because the print
+          // stylesheet uses a[href]::after to print each URL.
+          <article
             key={p.url}
-            href={p.url}
-            target="_blank"
-            rel="noreferrer noopener"
             className="surface-card group relative flex flex-col rounded-xl p-4 transition hover:border-line-strong avoid-break"
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <h3 className="text-sm font-semibold text-fg">{p.name}</h3>
+                <h3 className="text-sm font-semibold text-fg">
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="text-fg before:absolute before:inset-0 before:rounded-xl before:content-[''] focus-visible:outline-none focus-visible:before:ring-2 focus-visible:before:ring-accent"
+                  >
+                    {p.name}
+                  </a>
+                </h3>
                 <p className="mt-1 text-xs text-fg-faint">{new URL(p.url).host}</p>
               </div>
               <span className="text-xs font-medium text-accent transition group-hover:translate-x-0.5">
@@ -59,7 +69,27 @@ function ProjectGroup({
                 </span>
               ))}
             </div>
-          </a>
+            {p.links?.length ? (
+              <div className="relative z-10 mt-3 flex flex-wrap gap-2 print:flex-col print:gap-0.5">
+                {p.links.map((link) => {
+                  const store = link.kind === "android" ? "Google Play" : "App Store";
+                  return (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label={`${p.name} — ${store}`}
+                      className="print-flat inline-flex items-center gap-1 rounded-md border border-line-strong bg-card px-2.5 py-1 text-xs font-medium text-fg transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent print:block print:border-0 print:p-0"
+                    >
+                      {store}
+                      <span aria-hidden="true" className="print:hidden">↗</span>
+                    </a>
+                  );
+                })}
+              </div>
+            ) : null}
+          </article>
         ))}
       </div>
     </div>

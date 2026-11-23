@@ -1,11 +1,5 @@
 # Foto del CV
 
-El header del CV usa `/images/portrait.svg`.
+El header del CV (`src/components/HeaderCard.tsx`) usa `/images/portrait.jpg` en un marco cuadrado (1:1).
 
-Para usar la foto real (la del traje formal con pulgares arriba funciona muy bien para un CV):
-
-1. Copia tu foto como `portrait.jpg` en esta carpeta.
-2. En `src/components/HeaderCard.tsx` cambia `src="/images/portrait.svg"` por `src="/images/portrait.jpg"`.
-3. Quita el prop `unoptimized` del `<Image>` para que Next.js optimice la imagen.
-
-Aspecto recomendado: cuadrado (1:1), mínimo 256×256, idealmente 512×512.
+Para cambiar la foto, reemplaza `portrait.jpg` por una imagen cuadrada, idealmente de 640×640 o más, con la cara centrada.
