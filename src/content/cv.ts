@@ -36,7 +36,7 @@ export const highlights: Highlight[] = [
   { value: "15+", label: { es: "proyectos en producción", en: "projects in production" } },
   { value: "~60%", label: { es: "reducción de tiempo con IA", en: "faster delivery with AI" } },
   { value: "2", label: { es: "apps en Google Play", en: "apps on Google Play" } },
-  { value: "3", label: { es: "productos SaaS propios", en: "own SaaS products" } },
+  { value: "5", label: { es: "productos SaaS propios", en: "own SaaS products" } },
 ];
 
 export interface SkillGroup {
@@ -272,6 +272,26 @@ export const ownProjects: Project[] = [
       en: "Online store for natural products, in production.",
     },
     stack: ["React.js", "Strapi", "REST API"],
+  },
+  {
+    name: "Tu Chamba",
+    url: "https://tu-chamba.corpsc.com",
+    kind: "own",
+    summary: {
+      es: "Bolsa de empleo para Bolivia con contacto directo por WhatsApp, en producción.",
+      en: "Job marketplace for Bolivia with direct WhatsApp contact, in production.",
+    },
+    stack: ["Next.js", "React.js", "Vercel"],
+  },
+  {
+    name: "Line Hot",
+    url: "https://linehot.corpsc.com",
+    kind: "own",
+    summary: {
+      es: "App de citas para Bolivia, web y móvil, en producción.",
+      en: "Dating app for Bolivia, web and mobile, in production.",
+    },
+    stack: ["Next.js", "React Native", "NestJS", "Prisma"],
   },
 ];
 
