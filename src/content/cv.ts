@@ -16,7 +16,8 @@ export const profile = {
   phone: "+591 736 556 92",
   whatsapp: "https://wa.me/59173655692",
   linkedin: "https://www.linkedin.com/in/alejandro-perez-dev",
-  website: "https://kods.ai",
+  website: "https://irisnatural.corpsc.com",
+  websiteLabel: "irisnatural.corpsc.com",
   github: null as string | null,
 };
 
@@ -53,8 +54,18 @@ export const skills: SkillGroup[] = [
     items: ["React Native", "Android Studio", "Java", "Kotlin"],
   },
   {
-    label: { es: "Backend & CMS", en: "Backend & CMS" },
-    items: ["Strapi (headless)", "Node.js", "Symfony", "Ruby on Rails", "PHP / Yii"],
+    label: { es: "Backend & APIs", en: "Backend & APIs" },
+    items: [
+      "NestJS",
+      "Node.js",
+      "Prisma ORM",
+      "REST API · Swagger/OpenAPI",
+      "JWT · Passport",
+      "WebSockets (Socket.io)",
+      "Strapi (headless)",
+      "Cloudinary",
+      "Firebase (FCM)",
+    ],
   },
   {
     label: { es: "Testing & QA", en: "Testing & QA" },
@@ -98,12 +109,20 @@ export const experience: Experience[] = [
     period: { es: "2023 — Presente", en: "2023 — Present" },
     bullets: [
       {
-        es: "Construyo y mantengo plataformas web React.js + TypeScript para clientes internacionales en España y la Unión Europea.",
-        en: "Build and maintain React.js + TypeScript web platforms for international clients across Spain and the European Union.",
+        es: "Desarrollo frontend con React.js + TypeScript: construyo y mantengo plataformas web para clientes internacionales en España y la Unión Europea.",
+        en: "Frontend development with React.js + TypeScript: build and maintain web platforms for international clients across Spain and the European Union.",
       },
       {
         es: "Diseñé la arquitectura headless con Strapi CMS, permitiendo a los equipos de contenido gestionar datos de forma independiente al frontend.",
         en: "Architected and integrated Strapi CMS as a headless backend, enabling content teams to manage data independently from the frontend.",
+      },
+      {
+        es: "Monitoreo de las plataformas en producción (disponibilidad, errores y rendimiento), detectando y resolviendo incidencias de forma proactiva.",
+        en: "Monitoring of production platforms (availability, errors and performance), proactively detecting and resolving incidents.",
+      },
+      {
+        es: "Soporte técnico a clientes y usuarios finales: diagnóstico de incidencias, corrección de errores y despliegue de hotfixes.",
+        en: "Technical support for clients and end users: incident diagnosis, bug fixing and hotfix delivery.",
       },
       {
         es: "Integré Claude AI y Cursor IDE en el flujo diario para generación de código, revisión y refactor — reduciendo tiempos de entrega ~60%.",

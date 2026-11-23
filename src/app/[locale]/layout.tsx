@@ -78,6 +78,21 @@ export async function generateMetadata({
   };
 }
 
+// Hides the header highlight figures until CountUpValue animates them. Only runs the
+// animation path when motion is allowed and the figures haven't already counted up in
+// this session (same key as CountUpValue). Crawlers and no-JS visitors never get the
+// class, so they see the final values; globals.css also reveals them after 2 s.
+const countupBootstrapScript = `
+(function(){
+  try{
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches &&
+        sessionStorage.getItem('cv-countup-played') !== '1') {
+      document.documentElement.classList.add('countup');
+    }
+  }catch(e){}
+})();
+`;
+
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -90,8 +105,8 @@ const personJsonLd = {
     addressLocality: "Santa Cruz de la Sierra",
     addressCountry: "BO",
   },
-  sameAs: ["https://www.linkedin.com/in/alejandro-perez-dev", "https://kods.ai"],
-  knowsAbout: ["React", "TypeScript", "React Native", "Strapi"],
+  sameAs: ["https://www.linkedin.com/in/alejandro-perez-dev", "https://irisnatural.corpsc.com"],
+  knowsAbout: ["React", "Next.js", "TypeScript", "React Native", "NestJS", "Prisma", "PostgreSQL", "Strapi"],
 };
 
 export default async function LocaleLayout({
@@ -112,6 +127,7 @@ export default async function LocaleLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
+        <script dangerouslySetInnerHTML={{ __html: countupBootstrapScript }} />
       </head>
       <body className="bg-surface text-fg antialiased font-sans">
         <ThemeProvider>{children}</ThemeProvider>

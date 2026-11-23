@@ -125,6 +125,20 @@ body {
   }
 }
 
+/* Header highlight count-up (CountUpValue). `html.countup` is set by the head bootstrap
+   script only when the animation will run; the delayed animation is a fail-safe that
+   reveals the figures if hydration never happens. */
+html.countup [data-countup="pending"] {
+  opacity: 0;
+  animation: countup-reveal 0s 2s forwards;
+}
+
+@keyframes countup-reveal {
+  to {
+    opacity: 1;
+  }
+}
+
 /* ──────────────────────────────────────────────────────────────────
    Print stylesheet — forces light theme, removes screen-only chrome
    and lays the document out as a single-column A4 PDF.
@@ -206,5 +220,11 @@ body {
     content: " (" attr(href) ")";
     color: #4a5260;
     font-size: 9pt;
+  }
+
+  /* Never print a hidden or mid-count highlight figure. */
+  [data-countup] {
+    opacity: 1 !important;
+    animation: none !important;
   }
 }

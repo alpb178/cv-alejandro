@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Locale } from "@/i18n/config";
 import type { Dict } from "@/i18n/get-dictionary";
 import { highlights, pick, profile } from "@/content/cv";
+import CountUpValue from "./CountUpValue";
 
 export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dict }) {
   return (
@@ -14,7 +15,7 @@ export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dic
         />
 
         <div className="relative grid items-center gap-8 sm:grid-cols-[auto_1fr]">
-          <div className="relative w-28 shrink-0 overflow-hidden rounded-2xl border border-line bg-elevated aspect-[7/15] sm:w-32">
+          <div className="relative w-28 shrink-0 overflow-hidden rounded-2xl border border-line bg-elevated aspect-square sm:w-40">
             <Image
               src="/images/portrait.jpg"
               alt={
@@ -24,7 +25,7 @@ export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dic
               }
               fill
               className="object-cover"
-              sizes="(min-width: 640px) 128px, 112px"
+              sizes="(min-width: 640px) 160px, 112px"
               priority
             />
           </div>
@@ -45,19 +46,19 @@ export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dic
               <ContactLink href={`mailto:${profile.email}`} icon="mail" label={profile.email} />
               <ContactLink href={profile.whatsapp} icon="phone" label={profile.phone} />
               <ContactLink href={profile.linkedin} icon="linkedin" label="LinkedIn" />
-              <ContactLink href={profile.website} icon="link" label="kods.ai" />
+              <ContactLink href={profile.website} icon="link" label={profile.websiteLabel} />
             </ul>
           </div>
         </div>
 
         <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-5">
-          {highlights.map((h) => (
+          {highlights.map((h, i) => (
             <div key={h.value} className="bg-surface p-4 text-center sm:text-left">
               <dt className="text-[10px] font-medium uppercase tracking-[0.18em] text-fg-faint">
                 {pick(h.label, locale)}
               </dt>
               <dd className="mt-1 text-xl font-semibold tracking-tight text-fg sm:text-2xl">
-                {h.value}
+                <CountUpValue value={h.value} index={i} />
               </dd>
             </div>
           ))}
