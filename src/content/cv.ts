@@ -36,7 +36,7 @@ export const highlights: Highlight[] = [
   { value: "15+", label: { es: "proyectos en producción", en: "projects in production" } },
   { value: "~60%", label: { es: "reducción de tiempo con IA", en: "faster delivery with AI" } },
   { value: "2", label: { es: "apps en Google Play", en: "apps on Google Play" } },
-  { value: "3", label: { es: "productos SaaS propios", en: "own SaaS products" } },
+  { value: "5", label: { es: "productos SaaS propios", en: "own SaaS products" } },
 ];
 
 export interface SkillGroup {
@@ -154,8 +154,8 @@ export const experience: Experience[] = [
         en: "Built Android applications with Android Studio (Java / Kotlin).",
       },
       {
-        es: "Entregables: histolword.corpsc.com · humancore.corpsc.com · tikneo.corpsc.com · pop.corpsc.com.",
-        en: "Delivered: histolword.corpsc.com · humancore.corpsc.com · tikneo.corpsc.com · pop.corpsc.com.",
+        es: "Entregable: histolword.corpsc.com.",
+        en: "Delivered: histolword.corpsc.com.",
       },
     ],
     stack: ["React.js", "Android Studio", "Java", "Kotlin"],
@@ -273,6 +273,26 @@ export const ownProjects: Project[] = [
     },
     stack: ["React.js", "Strapi", "REST API"],
   },
+  {
+    name: "Tu Chamba",
+    url: "https://tu-chamba.corpsc.com",
+    kind: "own",
+    summary: {
+      es: "Bolsa de empleo para Bolivia con contacto directo por WhatsApp, en producción.",
+      en: "Job marketplace for Bolivia with direct WhatsApp contact, in production.",
+    },
+    stack: ["Next.js", "React.js", "Vercel"],
+  },
+  {
+    name: "Line Hot",
+    url: "https://linehot.corpsc.com",
+    kind: "own",
+    summary: {
+      es: "App de citas para Bolivia, web y móvil, en producción.",
+      en: "Dating app for Bolivia, web and mobile, in production.",
+    },
+    stack: ["Next.js", "React Native", "NestJS", "Prisma"],
+  },
 ];
 
 export const clientProjects: Project[] = [
@@ -292,16 +312,9 @@ export const clientProjects: Project[] = [
   },
   {
     name: "Tikneo Golf (Google Play)",
-    url: "https://play.google.com/store/search?q=tikneo%20golf",
+    url: "https://play.google.com/store/apps/details?id=com.tikneoapp.tikneoapp",
     kind: "client",
     summary: { es: "App móvil de gestión de rondas de golf.", en: "Mobile app for golf round management." },
-    stack: ["React Native", "Android"],
-  },
-  {
-    name: "Tikneo Social (Google Play)",
-    url: "https://play.google.com/store/search?q=tikneo%20social",
-    kind: "client",
-    summary: { es: "App social para comunidades deportivas.", en: "Social app for sports communities." },
     stack: ["React Native", "Android"],
   },
   {
@@ -323,13 +336,6 @@ export const clientProjects: Project[] = [
     url: "https://app.orlegitech.com",
     kind: "client",
     summary: { es: "Plataforma multilingüe de gestión empresarial (ES / EN).", en: "Multilingual business management platform (ES / EN)." },
-    stack: ["React.js"],
-  },
-  {
-    name: "HumanCore",
-    url: "https://humancore.corpsc.com",
-    kind: "client",
-    summary: { es: "Sistema corporativo de RRHH con dashboards.", en: "Corporate HR system with dashboards." },
     stack: ["React.js"],
   },
 ];
