@@ -105,7 +105,7 @@ const personJsonLd = {
     addressLocality: "Santa Cruz de la Sierra",
     addressCountry: "BO",
   },
-  sameAs: ["https://www.linkedin.com/in/alejandro-perez-dev", "https://irisnatural.corpsc.com"],
+  sameAs: ["https://www.linkedin.com/in/alpb1708", "https://irisnatural.corpsc.com"],
   knowsAbout: ["React", "Next.js", "TypeScript", "React Native", "NestJS", "Prisma", "PostgreSQL", "Strapi"],
 };
 
