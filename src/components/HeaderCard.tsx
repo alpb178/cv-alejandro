@@ -15,7 +15,7 @@ export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dic
         />
 
         <div className="relative grid items-center gap-8 sm:grid-cols-[auto_1fr]">
-          <div className="relative w-28 shrink-0 overflow-hidden rounded-2xl border border-line bg-elevated aspect-[7/15] sm:w-32">
+          <div className="relative w-28 shrink-0 overflow-hidden rounded-2xl border border-line bg-elevated aspect-square sm:w-40">
             <Image
               src="/images/portrait.jpg"
               alt={
@@ -25,7 +25,7 @@ export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dic
               }
               fill
               className="object-cover"
-              sizes="(min-width: 640px) 128px, 112px"
+              sizes="(min-width: 640px) 160px, 112px"
               priority
             />
           </div>
