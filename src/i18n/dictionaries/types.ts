@@ -6,7 +6,6 @@ export interface Dictionary {
     experience: string;
     projects: string;
     education: string;
-    languages: string;
     contact: string;
     cta: string;
     print: string;
@@ -25,8 +24,6 @@ export interface Dictionary {
   };
   ui: {
     open: string;
-    download: string;
-    today: string;
     availableFor: string;
     availabilityValue: string;
   };

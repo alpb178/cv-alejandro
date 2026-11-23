@@ -97,7 +97,15 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Alejandro Pérez",
-  jobTitle: "Senior Frontend Developer",
+  jobTitle: "CEO & Senior Full Stack Developer",
+  worksFor: [
+    { "@type": "Organization", name: "CORPSC", url: "https://www.corpsc.com" },
+    { "@type": "Organization", name: "EMX Comunicaciones", url: "https://emxcomunicaciones.com" },
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "CUJAE — Universidad Tecnológica de La Habana «José Antonio Echeverría»",
+  },
   url: SITE_URL,
   email: "mailto:alesx2soporte@gmail.com",
   address: {
@@ -105,8 +113,8 @@ const personJsonLd = {
     addressLocality: "Santa Cruz de la Sierra",
     addressCountry: "BO",
   },
-  sameAs: ["https://www.linkedin.com/in/alpb1708", "https://irisnatural.corpsc.com"],
-  knowsAbout: ["React", "Next.js", "TypeScript", "React Native", "NestJS", "Prisma", "PostgreSQL", "Strapi"],
+  sameAs: ["https://www.linkedin.com/in/alpb1708", "https://github.com/alpb178", "https://www.corpsc.com"],
+  knowsAbout: ["React", "Next.js", "TypeScript", "React Native", "Expo", "NestJS", "Prisma", "Django", "PostgreSQL", "Playwright"],
 };
 
 export default async function LocaleLayout({

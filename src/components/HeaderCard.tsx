@@ -20,8 +20,8 @@ export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dic
               src="/images/portrait.jpg"
               alt={
                 locale === "es"
-                  ? `${profile.name}, Senior Frontend Developer en Santa Cruz de la Sierra, Bolivia`
-                  : `${profile.name}, Senior Frontend Developer based in Santa Cruz de la Sierra, Bolivia`
+                  ? `${profile.name}, CEO de CORPSC y Senior Full Stack Developer en Santa Cruz de la Sierra, Bolivia`
+                  : `${profile.name}, CEO at CORPSC and Senior Full Stack Developer based in Santa Cruz de la Sierra, Bolivia`
               }
               fill
               className="object-cover"
@@ -37,8 +37,9 @@ export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dic
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-fg sm:text-5xl">
               {profile.name}
             </h1>
+            {/* The eyebrow above already shows the role's first segment. */}
             <p className="mt-3 text-sm text-fg-muted sm:text-base">
-              {pick(profile.role, locale)}
+              {pick(profile.role, locale).split("·").slice(1).join("·").trim()}
             </p>
             <p className="mt-1 text-sm text-fg-subtle">{pick(profile.location, locale)}</p>
 
@@ -46,6 +47,7 @@ export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dic
               <ContactLink href={`mailto:${profile.email}`} icon="mail" label={profile.email} />
               <ContactLink href={profile.whatsapp} icon="phone" label={profile.phone} />
               <ContactLink href={profile.linkedin} icon="linkedin" label="LinkedIn" />
+              <ContactLink href={profile.github} icon="github" label="GitHub" />
               <ContactLink href={profile.website} icon="link" label={profile.websiteLabel} />
             </ul>
           </div>
@@ -53,11 +55,11 @@ export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dic
 
         <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-5">
           {highlights.map((h, i) => (
-            <div key={h.value} className="bg-surface p-4 text-center sm:text-left">
+            <div key={h.value} className="flex flex-col justify-between gap-2 bg-surface p-4 text-center sm:text-left">
               <dt className="text-[10px] font-medium uppercase tracking-[0.18em] text-fg-faint">
                 {pick(h.label, locale)}
               </dt>
-              <dd className="mt-1 text-xl font-semibold tracking-tight text-fg sm:text-2xl">
+              <dd className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
                 <CountUpValue value={h.value} index={i} />
               </dd>
             </div>
@@ -80,7 +82,7 @@ function ContactLink({
   label,
 }: {
   href: string;
-  icon: "mail" | "phone" | "linkedin" | "link";
+  icon: IconName;
   label: string;
 }) {
   const isExternal = href.startsWith("http");
@@ -99,7 +101,9 @@ function ContactLink({
   );
 }
 
-function Icon({ name }: { name: "mail" | "phone" | "linkedin" | "link" }) {
+type IconName = "mail" | "phone" | "linkedin" | "github" | "link";
+
+function Icon({ name }: { name: IconName }) {
   const paths: Record<string, React.ReactNode> = {
     mail: (
       <>
@@ -115,6 +119,9 @@ function Icon({ name }: { name: "mail" | "phone" | "linkedin" | "link" }) {
         <rect x="3" y="3" width="18" height="18" rx="2.5" stroke="currentColor" strokeWidth="1.5" />
         <path d="M8 10v7M8 7.5v.01M12 17v-4a2 2 0 0 1 4 0v4M12 17v-7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
       </>
+    ),
+    github: (
+      <path d="M9 19c-4 1.3-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     ),
     link: (
       <path d="M9.5 14.5 14.5 9.5M8 13l-2 2a3.5 3.5 0 1 0 5 5l2-2M16 11l2-2a3.5 3.5 0 1 0-5-5l-2 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />

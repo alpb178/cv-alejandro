@@ -5,8 +5,8 @@ type T = { es: string; en: string };
 export const profile = {
   name: "Alejandro Pérez",
   role: {
-    es: "Senior Frontend Developer · React · TypeScript · Desarrollo asistido por IA",
-    en: "Senior Frontend Developer · React · TypeScript · AI-Powered Development",
+    es: "CEO de CORPSC · Senior Full Stack Developer (Web & Mobile) · React · TypeScript · IA",
+    en: "CEO at CORPSC · Senior Full Stack Developer (Web & Mobile) · React · TypeScript · AI",
   } as T,
   location: {
     es: "Santa Cruz de la Sierra, Bolivia · Disponible remoto (LATAM / UE)",
@@ -16,14 +16,15 @@ export const profile = {
   phone: "+591 736 556 92",
   whatsapp: "https://wa.me/59173655692",
   linkedin: "https://www.linkedin.com/in/alpb1708",
-  website: "https://irisnatural.corpsc.com",
-  websiteLabel: "irisnatural.corpsc.com",
-  github: null as string | null,
+  website: "https://www.corpsc.com",
+  websiteLabel: "www.corpsc.com",
+  github: "https://github.com/alpb178",
+  githubLabel: "alpb178",
 };
 
 export const summary: T = {
-  es: "Ingeniero Informático con más de 9 años de experiencia construyendo aplicaciones web y móviles en producción para clientes internacionales en España, Cuba y Bolivia. Especializado en React.js, TypeScript y Strapi CMS, con experiencia sólida en desarrollo móvil (React Native, Android) y testing end-to-end (Playwright, Cypress). Adoptante temprano del desarrollo asistido por IA (Claude AI, Cursor IDE), reduciendo tiempos de entrega ~60% sin sacrificar calidad. Adicionalmente desarrollo y mantengo productos SaaS propios en producción.",
-  en: "Computer Engineer with 9+ years of experience building production web and mobile applications for international clients across Spain, Cuba and Bolivia. Specialized in React.js, TypeScript and Strapi CMS, with strong experience in mobile development (React Native, Android) and end-to-end testing (Playwright, Cypress). Early adopter of AI-powered development (Claude AI, Cursor IDE), reducing delivery time by ~60% while keeping high code quality. I also build and maintain personal SaaS products in production.",
+  es: "Ingeniero Informático y CEO de CORPSC, con más de 9 años construyendo aplicaciones web y móviles en producción para clientes de España, Cuba y Bolivia. Full stack con React.js, Next.js y TypeScript en el frontend, NestJS, Prisma y Django en el backend, y React Native/Expo en móvil, con 6 apps publicadas en Google Play y App Store. Testing end-to-end con Playwright y Cypress. Uso el desarrollo asistido por IA (Claude AI, Cursor IDE) a diario, lo que reduce los tiempos de entrega ~60% sin bajar la calidad.",
+  en: "Computer Engineer and CEO of CORPSC, with 9+ years building production web and mobile applications for clients in Spain, Cuba and Bolivia. Full stack: React.js, Next.js and TypeScript on the frontend, NestJS, Prisma and Django on the backend, and React Native/Expo on mobile, with 6 apps published on Google Play and the App Store. End-to-end testing with Playwright and Cypress. I use AI-assisted development (Claude AI, Cursor IDE) daily, cutting delivery time by ~60% without lowering quality.",
 };
 
 export interface Highlight {
@@ -47,11 +48,11 @@ export interface SkillGroup {
 export const skills: SkillGroup[] = [
   {
     label: { es: "Frontend", en: "Frontend" },
-    items: ["React.js", "Next.js", "TypeScript", "Vue.js", "HTML5", "CSS3", "Tailwind"],
+    items: ["React.js", "Next.js", "TypeScript", "Vue.js", "TanStack Query", "i18n (next-intl)", "HTML5", "CSS3", "Tailwind"],
   },
   {
     label: { es: "Móvil", en: "Mobile" },
-    items: ["React Native", "Android Studio", "Java", "Kotlin"],
+    items: ["React Native", "Expo", "iOS · App Store", "Android · Google Play", "Android Studio", "Java", "Kotlin"],
   },
   {
     label: { es: "Backend & APIs", en: "Backend & APIs" },
@@ -59,6 +60,10 @@ export const skills: SkillGroup[] = [
       "NestJS",
       "Node.js",
       "Prisma ORM",
+      "Django / DRF",
+      "Laravel",
+      "FastAPI",
+      "Ruby on Rails · Symfony · PHP/Yii",
       "REST API · Swagger/OpenAPI",
       "JWT · Passport",
       "WebSockets (Socket.io)",
@@ -73,7 +78,11 @@ export const skills: SkillGroup[] = [
   },
   {
     label: { es: "IA & Dev tools", en: "AI & Dev tools" },
-    items: ["Claude AI", "Cursor IDE", "Prompt Engineering", "Git / GitHub", "CI/CD"],
+    items: ["Claude AI", "Cursor IDE", "Prompt Engineering"],
+  },
+  {
+    label: { es: "Despliegue & CI/CD", en: "Deployment & CI/CD" },
+    items: ["Vercel", "Render", "GitHub Actions", "Git / GitHub"],
   },
   {
     label: { es: "Bases de datos", en: "Databases" },
@@ -101,6 +110,32 @@ export interface Experience {
 }
 
 export const experience: Experience[] = [
+  {
+    role: { es: "Fundador y CEO", en: "Founder & CEO" },
+    company: "CORPSC",
+    companyUrl: "https://www.corpsc.com",
+    location: { es: "Santa Cruz de la Sierra, Bolivia · Remoto", en: "Santa Cruz de la Sierra, Bolivia · Remote" },
+    period: { es: "2026 — Presente", en: "2026 — Present" },
+    bullets: [
+      {
+        es: "Dirijo CORPSC, un estudio de software que diseña, construye y opera productos SaaS propios y proyectos para clientes.",
+        en: "I run CORPSC, a software studio that designs, builds and operates its own SaaS products and client projects.",
+      },
+      {
+        es: "Arquitectura y desarrollo full stack de 5 productos en producción con Next.js, NestJS, Prisma y apps móviles con Expo.",
+        en: "Architecture and full stack development of 5 products in production with Next.js, NestJS, Prisma and Expo mobile apps.",
+      },
+      {
+        es: "Flujo de entrega con ramas por feature, revisión de código y releases a producción en Vercel y Render.",
+        en: "Delivery workflow with feature branches, code review and production releases on Vercel and Render.",
+      },
+      {
+        es: "Productos en vivo: take · invoices · irisnatural · tu-chamba · linehot (.corpsc.com).",
+        en: "Live products: take · invoices · irisnatural · tu-chamba · linehot (.corpsc.com).",
+      },
+    ],
+    stack: ["Next.js", "NestJS", "Prisma", "Expo", "PostgreSQL", "Vercel", "Render"],
+  },
   {
     role: { es: "Full Stack Developer (Web & Mobile)", en: "Full Stack Developer (Web & Mobile)" },
     company: "EMX Comunicaciones",
@@ -293,37 +328,37 @@ export const ownProjects: Project[] = [
       es: "Plataforma e-commerce / marketplace en producción. Producto propio.",
       en: "E-commerce / marketplace platform in production. Own product.",
     },
-    stack: ["React.js", "Strapi", "REST API"],
+    stack: ["Next.js", "NestJS", "Prisma", "Cloudinary"],
   },
   {
     name: "Invoices",
     url: "https://invoices.corpsc.com",
     kind: "own",
     summary: {
-      es: "Generador y gestor de facturas en PDF, en producción.",
-      en: "PDF invoice generator and manager, in production.",
+      es: "Generador y gestor de facturas en PDF, web y app móvil, en producción.",
+      en: "PDF invoice generator and manager, web and mobile app, in production.",
     },
-    stack: ["React.js", "Strapi", "REST API"],
+    stack: ["Next.js", "NestJS", "Prisma", "Expo"],
   },
   {
     name: "Iris Natural",
     url: "https://irisnatural.corpsc.com",
     kind: "own",
     summary: {
-      es: "Tienda online de productos naturales, en producción.",
-      en: "Online store for natural products, in production.",
+      es: "Tienda online de productos naturales, web y app móvil, en producción.",
+      en: "Online store for natural products, web and mobile app, in production.",
     },
-    stack: ["React.js", "Strapi", "REST API"],
+    stack: ["Next.js", "NestJS", "Prisma", "Expo"],
   },
   {
     name: "Tu Chamba",
     url: "https://tu-chamba.corpsc.com",
     kind: "own",
     summary: {
-      es: "Bolsa de empleo para Bolivia con contacto directo por WhatsApp, en producción.",
-      en: "Job marketplace for Bolivia with direct WhatsApp contact, in production.",
+      es: "Bolsa de empleo para Bolivia con contacto directo por WhatsApp, web y app móvil, en producción.",
+      en: "Job marketplace for Bolivia with direct WhatsApp contact, web and mobile app, in production.",
     },
-    stack: ["Next.js", "React.js", "Vercel"],
+    stack: ["Next.js", "NestJS", "Prisma", "Expo"],
   },
   {
     name: "Line Hot",
@@ -401,6 +436,16 @@ export const clientProjects: Project[] = [
     kind: "client",
     summary: { es: "Plataforma de servicios con CMS headless.", en: "Services platform with headless CMS." },
     stack: ["React.js", "Strapi"],
+  },
+  {
+    name: "Dando Muela",
+    url: "https://dandomuela.com",
+    kind: "client",
+    summary: {
+      es: "Ecosistema web y móvil con API de autenticación y bot de Telegram con pagos en la red TON. Rol: desarrollador.",
+      en: "Web and mobile ecosystem with an auth API and a Telegram bot with TON-network payments. Role: developer.",
+    },
+    stack: ["Laravel", "FastAPI", "Python", "Telegram Bot", "TON"],
   },
 ];
 

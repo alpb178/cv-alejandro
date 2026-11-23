@@ -2,9 +2,9 @@ import type { Dictionary } from "./types";
 
 const dict: Dictionary = {
   meta: {
-    title: "Alejandro Pérez | Senior Frontend Developer React & TypeScript — Bolivia",
+    title: "Alejandro Pérez | CEO de CORPSC · Senior Full Stack Developer (React, React Native)",
     description:
-      "CV de Alejandro Pérez, Senior Frontend Developer (9+ años) en React, TypeScript, React Native y Strapi. Disponible remoto LATAM/UE. Contáctame para tu próximo proyecto.",
+      "CV de Alejandro Pérez, CEO de CORPSC y Senior Full Stack Developer (9+ años): React, Next.js, TypeScript, NestJS y React Native, con 6 apps publicadas. Disponible remoto LATAM/UE.",
   },
   nav: {
     summary: "Resumen",
@@ -12,7 +12,6 @@ const dict: Dictionary = {
     experience: "Experiencia",
     projects: "Proyectos",
     education: "Educación",
-    languages: "Idiomas",
     contact: "Contacto",
     cta: "Contactar",
     print: "Imprimir / PDF",
@@ -31,8 +30,6 @@ const dict: Dictionary = {
   },
   ui: {
     open: "Abrir",
-    download: "Descargar PDF",
-    today: "Presente",
     availableFor: "Disponibilidad",
     availabilityValue: "Abierto a oportunidades remotas (LATAM / UE) y proyectos por contrato.",
   },
