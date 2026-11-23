@@ -154,8 +154,8 @@ export const experience: Experience[] = [
         en: "Built Android applications with Android Studio (Java / Kotlin).",
       },
       {
-        es: "Entregables: histolword.corpsc.com · humancore.corpsc.com · tikneo.corpsc.com · pop.corpsc.com.",
-        en: "Delivered: histolword.corpsc.com · humancore.corpsc.com · tikneo.corpsc.com · pop.corpsc.com.",
+        es: "Entregables: histolword.corpsc.com · tikneo.corpsc.com · pop.corpsc.com.",
+        en: "Delivered: histolword.corpsc.com · tikneo.corpsc.com · pop.corpsc.com.",
       },
     ],
     stack: ["React.js", "Android Studio", "Java", "Kotlin"],
@@ -343,13 +343,6 @@ export const clientProjects: Project[] = [
     url: "https://app.orlegitech.com",
     kind: "client",
     summary: { es: "Plataforma multilingüe de gestión empresarial (ES / EN).", en: "Multilingual business management platform (ES / EN)." },
-    stack: ["React.js"],
-  },
-  {
-    name: "HumanCore",
-    url: "https://humancore.corpsc.com",
-    kind: "client",
-    summary: { es: "Sistema corporativo de RRHH con dashboards.", en: "Corporate HR system with dashboards." },
     stack: ["React.js"],
   },
 ];
