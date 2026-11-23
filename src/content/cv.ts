@@ -154,8 +154,8 @@ export const experience: Experience[] = [
         en: "Built Android applications with Android Studio (Java / Kotlin).",
       },
       {
-        es: "Entregables: histolword.corpsc.com · tikneo.corpsc.com · pop.corpsc.com.",
-        en: "Delivered: histolword.corpsc.com · tikneo.corpsc.com · pop.corpsc.com.",
+        es: "Entregable: histolword.corpsc.com.",
+        en: "Delivered: histolword.corpsc.com.",
       },
     ],
     stack: ["React.js", "Android Studio", "Java", "Kotlin"],
@@ -312,16 +312,9 @@ export const clientProjects: Project[] = [
   },
   {
     name: "Tikneo Golf (Google Play)",
-    url: "https://play.google.com/store/search?q=tikneo%20golf",
+    url: "https://play.google.com/store/apps/details?id=com.tikneoapp.tikneoapp",
     kind: "client",
     summary: { es: "App móvil de gestión de rondas de golf.", en: "Mobile app for golf round management." },
-    stack: ["React Native", "Android"],
-  },
-  {
-    name: "Tikneo Social (Google Play)",
-    url: "https://play.google.com/store/search?q=tikneo%20social",
-    kind: "client",
-    summary: { es: "App social para comunidades deportivas.", en: "Social app for sports communities." },
     stack: ["React Native", "Android"],
   },
   {
