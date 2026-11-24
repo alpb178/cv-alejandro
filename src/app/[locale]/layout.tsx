@@ -60,20 +60,12 @@ export async function generateMetadata({
       type: "profile",
       locale: locale === "es" ? "es_BO" : "en_US",
       siteName: "Alejandro Pérez — CV",
-      images: [
-        {
-          url: `/${locale}/opengraph-image`,
-          width: 1200,
-          height: 630,
-          alt: dict.meta.title,
-        },
-      ],
     },
+    // og:image comes from ./opengraph-image.tsx (content-hashed URL); X falls back to it.
     twitter: {
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.description,
-      images: [`/${locale}/opengraph-image`],
     },
   };
 }
