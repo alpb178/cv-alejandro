@@ -7,7 +7,7 @@ import CountUpValue from "./CountUpValue";
 export default function HeaderCard({ locale, dict }: { locale: Locale; dict: Dict }) {
   return (
     <section className="pt-10 sm:pt-14">
-      <div className="surface-card relative overflow-hidden rounded-3xl p-6 sm:p-10">
+      <div className="surface-card shine-border relative overflow-hidden rounded-3xl p-6 sm:p-10">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full blur-3xl"

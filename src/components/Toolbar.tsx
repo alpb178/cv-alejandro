@@ -36,7 +36,7 @@ export default function Toolbar({ locale, theme, printLabel, ctaLabel }: Props) 
       </button>
       <a
         href="mailto:alesx2soporte@gmail.com"
-        className="hidden whitespace-nowrap rounded-full bg-fg px-4 py-2 text-xs font-semibold text-surface transition hover:opacity-90 md:inline-flex"
+        className="shimmer-button hidden whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold text-surface md:inline-flex"
       >
         {ctaLabel}
       </a>
