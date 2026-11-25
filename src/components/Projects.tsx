@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import type { Dict } from "@/i18n/get-dictionary";
 import { clientProjects, ownProjects, pick, type Project } from "@/content/cv";
+import MagicCard from "./MagicCard";
 import SectionHeading from "./SectionHeading";
 
 export default function Projects({ locale, dict }: { locale: Locale; dict: Dict }) {
@@ -35,61 +36,62 @@ function ProjectGroup({
           // The card is an <article>, not an <a>: store buttons are links too and
           // links cannot nest. The title's ::before stretches over the whole card
           // so it stays clickable. ::before and not ::after, because the print
-          // stylesheet uses a[href]::after to print each URL.
-          <article
-            key={p.url}
-            className="surface-card group relative flex flex-col rounded-xl p-4 transition hover:border-line-strong avoid-break"
-          >
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <h3 className="text-sm font-semibold text-fg">
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="text-fg before:absolute before:inset-0 before:rounded-xl before:content-[''] focus-visible:outline-none focus-visible:before:ring-2 focus-visible:before:ring-accent"
-                  >
-                    {p.name}
-                  </a>
-                </h3>
-                <p className="mt-1 text-xs text-fg-faint">{new URL(p.url).host}</p>
-              </div>
-              <span className="text-xs font-medium text-accent transition group-hover:translate-x-0.5">
-                {ui.open} →
-              </span>
-            </div>
-            <p className="mt-2 text-sm text-fg-muted">{pick(p.summary, locale)}</p>
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {p.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="print-flat rounded-md border border-line bg-card px-1.5 py-0.5 text-[10.5px] text-fg-muted"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-            {p.links?.length ? (
-              <div className="relative z-10 mt-3 flex flex-wrap gap-2 print:flex-col print:gap-0.5">
-                {p.links.map((link) => {
-                  const store = link.kind === "android" ? "Google Play" : "App Store";
-                  return (
+          // stylesheet uses a[href]::after to print each URL. MagicCard's hover
+          // layers sit above the card with pointer-events: none, so neither the
+          // title nor the store links are blocked.
+          <MagicCard key={p.url} className="h-full rounded-xl avoid-break">
+            <article className="surface-card group relative flex h-full flex-col rounded-xl p-4 transition hover:border-line-strong">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <h3 className="text-sm font-semibold text-fg">
                     <a
-                      key={link.url}
-                      href={link.url}
+                      href={p.url}
                       target="_blank"
                       rel="noreferrer noopener"
-                      aria-label={`${p.name} — ${store}`}
-                      className="print-flat inline-flex items-center gap-1 rounded-md border border-line-strong bg-card px-2.5 py-1 text-xs font-medium text-fg transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent print:block print:border-0 print:p-0"
+                      className="text-fg before:absolute before:inset-0 before:rounded-xl before:content-[''] focus-visible:outline-none focus-visible:before:ring-2 focus-visible:before:ring-accent"
                     >
-                      {store}
-                      <span aria-hidden="true" className="print:hidden">↗</span>
+                      {p.name}
                     </a>
-                  );
-                })}
+                  </h3>
+                  <p className="mt-1 text-xs text-fg-faint">{new URL(p.url).host}</p>
+                </div>
+                <span className="text-xs font-medium text-accent transition group-hover:translate-x-0.5">
+                  {ui.open} →
+                </span>
               </div>
-            ) : null}
-          </article>
+              <p className="mt-2 text-sm text-fg-muted">{pick(p.summary, locale)}</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {p.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="print-flat rounded-md border border-line bg-card px-1.5 py-0.5 text-[10.5px] text-fg-muted"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              {p.links?.length ? (
+                <div className="relative z-10 mt-3 flex flex-wrap gap-2 print:flex-col print:gap-0.5">
+                  {p.links.map((link) => {
+                    const store = link.kind === "android" ? "Google Play" : "App Store";
+                    return (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        aria-label={`${p.name} — ${store}`}
+                        className="print-flat inline-flex items-center gap-1 rounded-md border border-line-strong bg-card px-2.5 py-1 text-xs font-medium text-fg transition hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent print:block print:border-0 print:p-0"
+                      >
+                        {store}
+                        <span aria-hidden="true" className="print:hidden">↗</span>
+                      </a>
+                    );
+                  })}
+                </div>
+              ) : null}
+            </article>
+          </MagicCard>
         ))}
       </div>
     </div>

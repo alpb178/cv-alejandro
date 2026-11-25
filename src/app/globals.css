@@ -23,6 +23,29 @@
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-serif: var(--font-fraunces), Georgia, "Iowan Old Style", serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Motion: shimmer CTA and shine border (see "UI effects" below). */
+  --animate-spin-around: spin-around var(--shimmer-duration, 3s) linear infinite;
+  --animate-shine: shine var(--shine-duration, 14s) linear infinite;
+}
+
+/* Keyframes stay at top level (not inside @theme) so they are always emitted. */
+@keyframes spin-around {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
 :root,
@@ -43,6 +66,7 @@
   --accent: #7aa2ff;
   --accent-soft: rgba(122, 162, 255, 0.16);
   --accent-strong: #4a7bff;
+  --accent-glow: rgba(122, 162, 255, 0.18);
 }
 
 .light {
@@ -62,6 +86,7 @@
   --accent: #1f48c4;
   --accent-soft: rgba(31, 72, 196, 0.1);
   --accent-strong: #2f60f0;
+  --accent-glow: rgba(31, 72, 196, 0.12);
 }
 
 html,
@@ -122,6 +147,175 @@ body {
   .font-mono-tight {
     font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
     letter-spacing: -0.01em;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   UI effects (Magic UI shimmer-button, magic-card and shine-border
+   techniques, in the CV accent tokens so both themes work).
+   Ring masks use longhands on purpose: the CSS minifier merges the
+   `mask` / `-webkit-mask` shorthands and drops the `exclude`
+   composite, which would let the ring cover the whole element.
+   ────────────────────────────────────────────────────────────────── */
+@layer components {
+  /* Shimmer: an accent light travels around the border of the contact pill.
+     The element itself is the "track"; ::before is the rotating spark and
+     ::after the fill, both painted behind the text. */
+  .shimmer-button {
+    --shimmer-track: var(--accent-strong);
+    --shimmer-spark: color-mix(in oklab, var(--accent) 40%, #ffffff);
+    --shimmer-bg: var(--fg);
+    /* Same result as the former hover:opacity-90 over the page surface. */
+    --shimmer-bg-hover: color-mix(in oklab, var(--fg) 90%, var(--surface));
+    --shimmer-border: 2px;
+    --shimmer-duration: 3s;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--shimmer-track);
+  }
+
+  .shimmer-button::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150%;
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    z-index: -2;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0 55%,
+      var(--shimmer-spark) 82%,
+      #ffffff 93%,
+      transparent 100%
+    );
+    animation: var(--animate-spin-around);
+    pointer-events: none;
+  }
+
+  .shimmer-button::after {
+    content: "";
+    position: absolute;
+    inset: var(--shimmer-border);
+    border-radius: inherit;
+    z-index: -1;
+    background: var(--shimmer-bg);
+    transition: background-color 200ms;
+    pointer-events: none;
+  }
+
+  .shimmer-button:hover::after,
+  .shimmer-button:focus-visible::after {
+    background: var(--shimmer-bg-hover);
+  }
+
+  /* Magic card: an accent spotlight and ring follow the pointer (position
+     written by components/MagicCard.tsx). The layers sit above the card
+     content, never take pointer events, and the glow is faint enough to keep
+     text legible. */
+  .magic-card {
+    --magic-x: -200px;
+    --magic-y: -200px;
+    --magic-size: 200px;
+    --magic-from: var(--accent);
+    --magic-to: var(--accent-strong);
+    --magic-spotlight: var(--accent-glow);
+    position: relative;
+  }
+
+  .magic-card__spotlight,
+  .magic-card__border {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+  }
+
+  .magic-card__spotlight {
+    background: radial-gradient(
+      var(--magic-size) circle at var(--magic-x) var(--magic-y),
+      var(--magic-spotlight),
+      transparent 100%
+    );
+  }
+
+  .magic-card__border {
+    padding: 1px;
+    background: radial-gradient(
+      var(--magic-size) circle at var(--magic-x) var(--magic-y),
+      var(--magic-from),
+      var(--magic-to) 40%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
+    -webkit-mask-clip: content-box, border-box;
+    -webkit-mask-composite: xor;
+    mask-image: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
+    mask-clip: content-box, border-box;
+    mask-composite: exclude;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .magic-card:hover > .magic-card__spotlight,
+    .magic-card:hover > .magic-card__border {
+      opacity: 1;
+    }
+  }
+
+  /* Shine border: an accent gradient travels around the header card. ::before
+     is masked to a 2px ring, so it never covers the card content. z-index 1
+     keeps the ring above the card's decorative accent glow. */
+  .shine-border {
+    --shine-width: 2px;
+    --shine-duration: 14s;
+  }
+
+  .shine-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    padding: var(--shine-width);
+    pointer-events: none;
+    background-image: radial-gradient(
+      transparent,
+      transparent,
+      var(--accent),
+      var(--accent-strong),
+      var(--color-positive),
+      transparent,
+      transparent
+    );
+    background-size: 300% 300%;
+    animation: var(--animate-shine);
+    -webkit-mask-image: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
+    -webkit-mask-clip: content-box, border-box;
+    -webkit-mask-composite: xor;
+    mask-image: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
+    mask-clip: content-box, border-box;
+    mask-composite: exclude;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shimmer-button::before {
+      animation: none;
+      opacity: 0;
+    }
+
+    .shine-border::before {
+      animation: none;
+    }
+
+    /* No pointer-following effect at all (MagicCard also stops tracking). */
+    .magic-card__spotlight,
+    .magic-card__border {
+      display: none;
+    }
   }
 }
 
@@ -220,6 +414,15 @@ html.countup [data-countup="pending"] {
     content: " (" attr(href) ")";
     color: #4a5260;
     font-size: 9pt;
+  }
+
+  /* No UI effects on paper: no shimmer spark, hover layers or shine ring. */
+  .shimmer-button::before,
+  .magic-card__spotlight,
+  .magic-card__border,
+  .shine-border::before {
+    display: none !important;
+    animation: none !important;
   }
 
   /* Never print a hidden or mid-count highlight figure. */
